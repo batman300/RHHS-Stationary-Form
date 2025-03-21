@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Stationery Store</title>
+    <style>
+        body { 
+            font-family: Courier, monospace; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f4f4f4; 
+        }
+        .container { 
+            width: 90%; 
+            max-width: 1200px; 
+            margin: auto; 
+            padding: 20px 0;
+        }
+        header { 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #333; 
+            color: #fff; 
+            padding: 20px; 
+            font-size: 24px;
+        }
+        header img {
+            max-height: 80px;
+        }
+        header h1 {
+            font-size: 28px;
+        }
+        .products { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            gap: 20px; 
+            padding: 20px; 
+        }
+        .product { 
+            background: white; 
+            padding: 20px; 
+            width: 250px; 
+            text-align: center; 
+            border-radius: 8px; 
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); 
+        }
+        .product input {
+            width: 60px;
+            padding: 5px;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .contact-form, .summary-container { 
+            text-align: center; 
+            padding: 20px; 
+            background: #fff; 
+            border-radius: 8px; 
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); 
+            margin: 20px auto; 
+            max-width: 500px;
+        }
+        .contact-form input, .contact-form textarea { 
+            width: 90%; 
+            padding: 10px; 
+            margin: 10px 0; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            font-size: 16px;
+        }
+        .contact-form button, .summary-btn, .copy-btn, .csv-btn { 
+            padding: 12px 20px; 
+            background: #333; 
+            color: white; 
+            border: none; 
+            cursor: pointer; 
+            font-size: 16px; 
+            border-radius: 5px;
+        }
+        #summary {
+            font-size: 16px;
+            color: #333;
+            text-align: left;
+        }
+        .form-section h2 {
+            margin-top: 0;
+        }
+        .form-section {
+            margin-bottom: 20px;
+        }
+        .form-section input, .form-section textarea {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="file:///C:/Users/Lenovo/OneDrive%20-%20Rafic%20Hariri%20High%20School-Saida/BT-IT-Baraa%20El-Mallah/images-removebg-preview.png" alt="School Logo"> 
+        <h1>School Stationery Store</h1>
+    </header>
+    <div class="container">
+        <!-- Teacher Information Section -->
+        <section class="contact-form">
+
+            <form onsubmit="return validateForm()">
+                <!-- Teacher Information Section -->
+                <div class="form-section">
+                    <h2>Teacher Information</h2>
+                    <input type="text" id="teacher-name" placeholder="Teacher's Name" required>
+                    <input type="text" id="class" placeholder="Class" required>
+                    <input type="text" id="subject" placeholder="Subject" required>
+                    <input type="text" id="coordinator-name" placeholder="Coordinator's Name" required>
+                </div>
+
+                <!-- Notes Section -->
+                <div class="form-section">
+                    <h2>Notes</h2>
+                    <textarea id="notes" placeholder="Enter any notes here"></textarea>
+                </div>
+
+                <!-- Suggestions Section -->
+                <div class="form-section">
+                    <h2>Product Suggestions (Max 3)</h2>
+                    <input type="text" id="suggestion1" placeholder="Suggestion 1 (Optional)">
+                    <input type="text" id="suggestion2" placeholder="Suggestion 2 (Optional)">
+                    <input type="text" id="suggestion3" placeholder="Suggestion 3 (Optional)">
+                </div>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+
+        <!-- Product Selection Section -->
+        <section class="products">
+            <div class="product">
+                <h2>دفتر صغير عادي مربع (حساب)</h2>
+                <label for="notebooks">Quantity:</label>
+                <input type="number" id="notebooks" min="0" max="100" value="0">
+            </div>
+            <div class="product">
+                <h2>دفتر صغير عادي سطرين</h2>
+                <label for="pens">Quantity:</label>
+                <input type="number" id="pens" min="0" max="100" value="0">
+            </div>
+            <div class="product">
+                <h2>دفتر صغير عادي سطر عربي</h2>
+                <label for="pencils">Quantity:</label>
+                <input type="number" id="pencils" min="0" max="100" value="0">
+            </div>
+            <div class="product">
+                <h2>دفتر جامعة شَكّ</h2>
+                <label for="erasers">Quantity:</label>
+                <input type="number" id="erasers" min="0" max="100" value="0">
+            </div>
+            <div class="product">
+                <h2>ملف نايلون بوجه شفاف ووجه ملون</h2>
+                <label for="markers">Quantity:</label>
+                <input type="number" id="markers" min="0" max="100" value="0">
+            </div>
+            <div class="product">
+                <h2>مغلف نايلون مع كبسة</h2>
+                <label for="highlighters">Quantity:</label>
+                <input type="number" id="highlighters" min="0" max="100" value="0">
+            </div>
+            <div class="product">
+                <h2>ملف كرتون مع مغيط</h2>
+                <label for="glue">Quantity:</label>
+                <input type="number" id="glue" min="0" max="100" value="0">
+            </div>
+            <div class="product">
+                <h2>ملف كرتون أصفر</h2>
+                <label for="scissors">Quantity:</label>
+                <input type="number" id="scissors" min="0" max="100" value="0">
+            </div>
+            <div class="product">
+                <h2>ملف مع أكياس</h2>
+                <label for="staplers">Quantity:</label>
+                <input type="number" id="staplers" min="0" max="100" value="0">
+            </div>
+            <!-- Additional Products -->
+            <div class="product">
+                <h2>Cahier de Production</h2>
+                <label for="rulers">Quantity:</label>
+                <input type="number" id="rulers" min="0" max="100" value="0">
+            </div>
+            <div class="product">
+                <h2>English Composition Booklet</h2>
+                <label for="paperclips">Quantity:</label>
+                <input type="number" id="paperclips" min="0" max="100" value="0">
+            </div>
+            <div class="product">
+                <h2>دفتر Graph Paper</h2>
+                <label for="binders">Quantity:</label>
+                <input type="number" id="binders" min="0" max="100" value="0">
+            </div>
+            <div class="product">
+                <h2>دفتر رسم كبير</h2>
+                <label for="whiteboards">Quantity:</label>
+                <input type="number" id="whiteboards" min="0" max="100" value="0">
+            </div>
+            <div class="product">
+                <h2>دفتر تعبير</h2>
+                <label for="postit">Quantity:</label>
+                <input type="number" id="postit" min="0" max="100" value="0">
+            </div>
+        </section>
+
+        <!-- Show Summary Button Below Results -->
+        <div class="summary-btn-container" style="text-align: center;">
+            <button class="summary-btn" onclick="showSummary()">Show Summary</button>
+        </div>
+
+        <!-- Order Summary Section -->
+        <section class="summary-container">
+            <h2>Selected Items</h2>
+            <p id="summary">No items selected yet.</p>
+            <!-- Copy Button -->
+            <button class="copy-btn" onclick="copySummary()">Copy Summary</button>
+            <!-- Download CSV Button -->
+            <button class="csv-btn" onclick="downloadCSV()">Download CSV</button>
+        </section>
+    </div>
+
+    <script>
+        function showSummary() {
+            let items = [
+                { name: "دفتر صغير عادي مربع (حساب)", id: "notebooks" },
+                { name: "دفتر صغير عادي سطرين", id: "pens" },
+                { name: "دفتر صغير عادي سطر عربي", id: "pencils" },
+                { name: "دفتر جامعة شَكّ", id: "erasers" },
+                { name: "ملف نايلون بوجه شفاف ووجه ملون", id: "markers" },
+                { name: "مغلف نايلون مع كبسة", id: "highlighters" },
+                { name: "ملف كرتون مع مغيط", id: "glue" },
+                { name: "ملف كرتون أصفر", id: "scissors" },
+                { name: "ملف مع أكياس", id: "staplers" },
+                { name: "Cahier de Production", id: "rulers" },
+                { name: "English Composition Booklet", id: "paperclips" },
+                { name: "دفتر Graph Paper", id: "binders" },
+                { name: "دفتر رسم كبير", id: "whiteboards" },
+                { name: "دفتر تعبير", id: "postit" }
+            ];
+
+            let summaryText = "<strong>Order Summary:</strong><br>";
+            // Teacher's Information
+            let teacherName = document.getElementById("teacher-name").value;
+            let classInfo = document.getElementById("class").value;
+            let subject = document.getElementById("subject").value;
+            let coordinatorName = document.getElementById("coordinator-name").value;
+            let notes = document.getElementById("notes").value;
+
+            summaryText += teacherName ? `<strong>Teacher's Name:</strong> ${teacherName}<br>` : '';
+            summaryText += classInfo ? `<strong>Class:</strong> ${classInfo}<br>` : '';
+            summaryText += subject ? `<strong>Subject:</strong> ${subject}<br>` : '';
+            summaryText += coordinatorName ? `<strong>Coordinator's Name:</strong> ${coordinatorName}<br>` : '';
+            summaryText += notes ? `<strong>Notes:</strong> ${notes}<br><br>` : '';
+
+            // Selected Items
+            let selectedItems = items
+                .map(item => {
+                    let quantity = document.getElementById(item.id).value;
+                    return quantity > 0 ? `${item.name}: ${quantity}` : null;
+                })
+                .filter(item => item !== null);
+
+            summaryText += selectedItems.length > 0 ? selectedItems.join("<br>") : "No items selected.";
+
+            // Suggestions
+            let suggestions = [];
+            for (let i = 1; i <= 3; i++) {
+                let suggestion = document.getElementById("suggestion" + i).value;
+                if (suggestion) {
+                    suggestions.push(`Suggestion ${i}: ${suggestion}`);
+                }
+            }
+
+            if (suggestions.length > 0) {
+                summaryText += "<br><strong>Suggestions:</strong><br>" + suggestions.join("<br>");
+            }
+
+            // Display date and time
+            let date = new Date();
+            summaryText += `<br><strong>Date and Time:</strong> ${date.toLocaleString()}`;
+
+            document.getElementById("summary").innerHTML = summaryText;
+        }
+
+        function copySummary() {
+            let summaryText = document.getElementById("summary").innerText;
+            navigator.clipboard.writeText(summaryText).then(() => {
+                alert("Summary copied to clipboard!");
+            });
+        }
+
+        function downloadCSV() {
+            let items = [
+                { name: "دفتر صغير عادي مربع (حساب)", id: "notebooks" },
+                { name: "دفتر صغير عادي سطرين", id: "pens" },
+                { name: "دفتر صغير عادي سطر عربي", id: "pencils" },
+                { name: "دفتر جامعة شَكّ", id: "erasers" },
+                { name: "ملف نايلون بوجه شفاف ووجه ملون", id: "markers" },
+                { name: "مغلف نايلون مع كبسة", id: "highlighters" },
+                { name: "ملف كرتون مع مغيط", id: "glue" },
+                { name: "ملف كرتون أصفر", id: "scissors" },
+                { name: "ملف مع أكياس", id: "staplers" },
+                { name: "Cahier de Production", id: "rulers" },
+                { name: "English Composition Booklet", id: "paperclips" },
+                { name: "دفتر Graph Paper", id: "binders" },
+                { name: "دفتر رسم كبير", id: "whiteboards" },
+                { name: "دفتر تعبير", id: "postit" }
+            ];
+
+            let teacherName = document.getElementById("teacher-name").value;
+            let classInfo = document.getElementById("class").value;
+            let subject = document.getElementById("subject").value;
+            let coordinatorName = document.getElementById("coordinator-name").value;
+            let notes = document.getElementById("notes").value;
+
+            let data = [
+                ["Teacher's Name", teacherName],
+                ["Class", classInfo],
+                ["Subject", subject],
+                ["Coordinator's Name", coordinatorName],
+                ["Notes", notes]
+            ];
+
+            items.forEach(item => {
+                let quantity = document.getElementById(item.id).value;
+                if (quantity > 0) {
+                    data.push([item.name, quantity]);
+                }
+            });
+
+            // Adding suggestions
+            for (let i = 1; i <= 3; i++) {
+                let suggestion = document.getElementById("suggestion" + i).value;
+                if (suggestion) {
+                    data.push([`Suggestion ${i}`, suggestion]);
+                }
+            }
+
+            // Convert to CSV format
+            let csvContent = "data:text/csv;charset=utf-8,";
+            data.forEach(row => {
+                csvContent += row.join(",") + "\n";
+            });
+
+            // Trigger CSV download
+            let encodedUri = encodeURI(csvContent);
+            let link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "order_summary.csv");
+            link.click();
+        }
+
+        function validateForm() {
+            let teacherName = document.getElementById("teacher-name").value;
+            let classInfo = document.getElementById("class").value;
+            let subject = document.getElementById("subject").value;
+            let coordinatorName = document.getElementById("coordinator-name").value;
+
+            if (!teacherName || !classInfo || !subject || !coordinatorName) {
+                alert("Please fill out all the required fields.");
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
